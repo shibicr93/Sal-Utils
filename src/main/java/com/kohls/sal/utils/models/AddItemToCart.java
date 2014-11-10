@@ -1,4 +1,4 @@
-package com.kohls.sal.utils.controller;
+package com.kohls.sal.utils.models;
 
 /**
  * Created by Shibi on 8/4/14.

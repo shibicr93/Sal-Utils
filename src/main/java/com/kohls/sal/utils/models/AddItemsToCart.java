@@ -1,4 +1,4 @@
-package com.kohls.sal.utils.controller;
+package com.kohls.sal.utils.models;
 
 import java.util.ArrayList;
 import java.util.List;
