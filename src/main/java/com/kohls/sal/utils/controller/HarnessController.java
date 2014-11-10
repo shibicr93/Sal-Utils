@@ -1,24 +1,26 @@
 package com.kohls.sal.utils.controller;
 
 import com.kohls.sal.utils.models.AddItemsToCart;
+import com.kohls.sal.utils.models.RegisteredCheckoutRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.SimpleFormController;
 
 import java.lang.annotation.Annotation;
 
 @Controller
 @RequestMapping("/test")
-public class HarnessController implements Controller{
+public class HarnessController  implements Controller {
 
 
     @RequestMapping(value = "/addItem", method = RequestMethod.GET)
     public ModelAndView addItemToCart() {
-        AddItemsToCart addItemsToCart = new AddItemsToCart();
-        return new ModelAndView("index", "addItemsToCart", addItemsToCart);
+        RegisteredCheckoutRequest registeredCheckoutRequest = new RegisteredCheckoutRequest();
+        return new ModelAndView("registeredCheckoutRequest", "registeredCheckoutRequest", registeredCheckoutRequest);
         }
 
     @RequestMapping(value = "/addItem", method = RequestMethod.POST)

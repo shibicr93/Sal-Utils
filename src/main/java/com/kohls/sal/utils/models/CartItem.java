@@ -5,26 +5,39 @@ package com.kohls.sal.utils.models;
  */
 public abstract class CartItem {
 
-    protected String product_id;
-    protected String sku_code;
+    protected String productId;
+    protected String skuCode;
     protected String quantity;
-    protected String requestor;
+    protected String cartId;
 
-    public abstract String getProduct_id();
+    public String getCartId() {
+        return cartId;
+    }
 
-    public abstract void setProduct_id(String product_id);
+    public void setCartId(final String cartId) {
+        this.cartId = cartId;
+    }
 
-    public abstract String getSku_code();
+    public String getProductId() {
+        return productId;
+    }
 
-    public abstract void setSku_code(String sku_code);
+    public void setProductId(final String productId) {
+        this.productId = productId;
+    }
 
-    public abstract String getQuantity() ;
+    public String getSkuCode() {
+        return skuCode;
+    }
+
+    public void setSkuCode(final String skuCode) {
+        this.skuCode = skuCode;
+    }
+
+    public abstract String getQuantity();
 
     public abstract void setQuantity(String quantity);
 
-    public abstract String getRequestor();
-
-    public abstract void setRequestor(String requestor);
 }
 
 
