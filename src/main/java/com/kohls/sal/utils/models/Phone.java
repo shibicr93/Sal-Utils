@@ -7,6 +7,8 @@ public class Phone {
     private static final long serialVersionUID = -3539222140183924379L;
 
     private  String areaCode;
+    private  String exchange;
+    private  String extension;
 
     public String getAreaCode() {
         return areaCode;
@@ -32,8 +34,7 @@ public class Phone {
         this.extension = extension;
     }
 
-    private  String exchange;
-    private  String extension;
+
 
 
         }
