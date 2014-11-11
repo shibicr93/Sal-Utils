@@ -1,7 +1,5 @@
 package com.kohls.sal.utils.models;
 
-import java.util.List;
-
 /**
  * Created by Shibi on 10-11-2014.
  */
@@ -19,91 +17,27 @@ public class BillingShippingRequest {
     private boolean expeditedCheckout = false;
     private boolean validateShippingMethod = false;
 
-    public boolean isValidateShippingMethod() {
-        return validateShippingMethod;
-    }
-
-    public void setValidateShippingMethod(final boolean validateShippingMethod) {
-        this.validateShippingMethod = validateShippingMethod;
-    }
-
-    public void setBillingContact(final Contact billingContact) {
-        this.billingContact = billingContact;
-    }
-
     public Contact getBillingContact() {
         return billingContact;
     }
 
-    public void setShippingContact(final Contact shippingContact) {
-        this.shippingContact = shippingContact;
+    public void setBillingContact(Contact billingContact) {
+        this.billingContact = billingContact;
     }
 
     public Contact getShippingContact() {
-        return shippingAddressSameAsBillingAddress ? billingContact : shippingContact;
+        return shippingContact;
     }
 
-    /**
-     * @deprecated use getBillingContact() instead
-     */
-    public Address getBillingAddress() {
-        return notNull(billingContact) ? billingContact.getAddress() : null;
-    }
-
-    /**
-     * @deprecated use setBillingContact(Contact) instead
-     */
-    public void setBillingAddress(final Address billingAddress) {
-        this.billingContact = Contact.Builder.getOrCreate(billingContact).address(billingAddress).build();
-    }
-
-    /**
-     * @deprecated use getShippingContact() instead
-     */
-    public Address getShippingAddress() {
-        return notNull(shippingContact) ? shippingContact.getAddress() : null;
-    }
-
-    /**
-     * @deprecated use setShippingContact(Contact) instead
-     */
-    public void setShippingAddress(final Address shippingAddress) {
-        this.shippingContact = Contact.Builder.getOrCreate(shippingContact).address(shippingAddress).build();
-    }
-
-    /**
-     * @deprecated use getBillingContact() instead
-     */
-    public Phone getBillingPhone() {
-        return notNull(billingContact) ? billingContact.getPhone() : null;
-    }
-
-    /**
-     * @deprecated use setBillingContact(Contact) instead
-     */
-    public void setBillingPhone(final Phone billingPhone) {
-        this.billingContact = Contact.Builder.getOrCreate(billingContact).phone(billingPhone).build();
-    }
-
-    /**
-     * @deprecated use getShippingContact() instead
-     */
-    public Phone getShippingPhone() {
-        return notNull(shippingContact) ? shippingContact.getPhone() : null;
-    }
-
-    /**
-     * @deprecated use setShippingContact(Contact) instead
-     */
-    public void setShippingPhone(final Phone shippingPhone) {
-        this.shippingContact = Contact.Builder.getOrCreate(shippingContact).phone(shippingPhone).build();
+    public void setShippingContact(Contact shippingContact) {
+        this.shippingContact = shippingContact;
     }
 
     public User getUser() {
         return user;
     }
 
-    public void setUser(final User user) {
+    public void setUser(User user) {
         this.user = user;
     }
 
@@ -111,7 +45,7 @@ public class BillingShippingRequest {
         return shippingAddressSameAsBillingAddress;
     }
 
-    public void setShippingAddressSameAsBillingAddress(final boolean shippingAddressSameAsBillingAddress) {
+    public void setShippingAddressSameAsBillingAddress(boolean shippingAddressSameAsBillingAddress) {
         this.shippingAddressSameAsBillingAddress = shippingAddressSameAsBillingAddress;
     }
 
@@ -119,7 +53,7 @@ public class BillingShippingRequest {
         return shippingMethod;
     }
 
-    public void setShippingMethod(final String shippingMethod) {
+    public void setShippingMethod(String shippingMethod) {
         this.shippingMethod = shippingMethod;
     }
 
@@ -127,7 +61,7 @@ public class BillingShippingRequest {
         return shoppingCart;
     }
 
-    public void setShoppingCart(final ShoppingCart shoppingCart) {
+    public void setShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
     }
 
@@ -135,7 +69,7 @@ public class BillingShippingRequest {
         return shippingOptions;
     }
 
-    public void setShippingOptions(final ShippingOptions shippingOptions) {
+    public void setShippingOptions(ShippingOptions shippingOptions) {
         this.shippingOptions = shippingOptions;
     }
 
@@ -143,7 +77,7 @@ public class BillingShippingRequest {
         return updateUser;
     }
 
-    public void setUpdateUser(final boolean updateUser) {
+    public void setUpdateUser(boolean updateUser) {
         this.updateUser = updateUser;
     }
 
@@ -151,7 +85,19 @@ public class BillingShippingRequest {
         return expeditedCheckout;
     }
 
-    public void setExpeditedCheckout(final boolean expeditedCheckout) {
+    public void setExpeditedCheckout(boolean expeditedCheckout) {
         this.expeditedCheckout = expeditedCheckout;
     }
+
+    public boolean isValidateShippingMethod() {
+        return validateShippingMethod;
+    }
+
+    public void setValidateShippingMethod(boolean validateShippingMethod) {
+        this.validateShippingMethod = validateShippingMethod;
+    }
 }
+
+
+
+

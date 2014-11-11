@@ -4,8 +4,8 @@ package com.kohls.sal.utils.models;
  * Created by Shermarajan on 11/10/2014.
  */
 public class SubmitPaymentRequest {
-     User user;
-     ShoppingCart shoppingCart;
+    User user;
+    ShoppingCart shoppingCart;
 
     protected Boolean isRegistered;
 
@@ -33,3 +33,5 @@ public class SubmitPaymentRequest {
         this.isRegistered = isRegistered;
     }
 }
+
+
