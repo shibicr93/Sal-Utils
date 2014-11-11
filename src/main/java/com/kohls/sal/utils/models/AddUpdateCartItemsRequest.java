@@ -2,10 +2,6 @@ package com.kohls.sal.utils.models;
 
 
 
-import com.kohls.sal.utils.models.CartItem;
-import com.kohls.sal.utils.models.Credentials;
-import com.kohls.sal.utils.models.User;
-
 import java.util.List;
 
 public class AddUpdateCartItemsRequest {
@@ -83,5 +79,9 @@ public class AddUpdateCartItemsRequest {
         this.expeditedCheckout = expeditedCheckout;
     }
 }
+
+
+
+
 
 

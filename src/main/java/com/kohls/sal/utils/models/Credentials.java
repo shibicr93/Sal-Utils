@@ -4,19 +4,26 @@ public class Credentials{
 
     private static final long serialVersionUID = 7953698032376136494L;
 
-    private final String userId;
-    private final String password;
+    private  String userId;
 
-    public Credentials(final String userId, final String password) {
-        this.userId = userId;
-        this.password = password;
-    }
+    private  String password;
 
     public String getUserId() {
         return userId;
     }
 
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
     public String getPassword() {
         return password;
     }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+
+
 }
