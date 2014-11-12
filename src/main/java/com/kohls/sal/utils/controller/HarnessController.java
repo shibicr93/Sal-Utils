@@ -24,10 +24,10 @@ public class HarnessController  implements Controller {
         }
 
     @RequestMapping(value = "/addItem", method = RequestMethod.POST)
-	public String addCartItem(@ModelAttribute AddItemsToCart addItemsToCart,ModelMap model) {
-            model.addAttribute(addItemsToCart.getAddItemsToCart());
-            return "result";
-	}
+       public String addCartItem(@ModelAttribute AddItemsToCart addItemsToCart,ModelMap model) {
+        model.addAttribute(addItemsToCart.getAddItemsToCart());
+        return "result";
+    }
 
     @Override
     public String value() {

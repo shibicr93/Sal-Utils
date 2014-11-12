@@ -3,12 +3,12 @@ package com.kohls.sal.utils.models;
 /**
  * Created by Shibi on 8/4/14.
  */
-public abstract class CartItem {
+public class CartItem {
 
-    protected String productId;
-    protected String skuCode;
-    protected String quantity;
-    protected String cartId;
+    private String productId;
+    private String skuCode;
+    private String quantity;
+    private String cartId;
 
     public String getCartId() {
         return cartId;
@@ -34,10 +34,13 @@ public abstract class CartItem {
         this.skuCode = skuCode;
     }
 
-    public abstract String getQuantity();
+    public String getQuantity() {
+        return quantity;
+    }
 
-    public abstract void setQuantity(String quantity);
-
+    public void setQuantity(String quantity) {
+        this.quantity = quantity;
+    }
 }
 
 

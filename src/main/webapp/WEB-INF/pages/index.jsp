@@ -18,8 +18,12 @@
 
 <h2>SAL WORKFLOW TEST</h2>
 <form method="get" action="/test/addItem">
-    Count: <input name="count" id="count" type="text">
-    <input type="submit" name="add" value="add">
+    <table>
+        <tr>
+            <td> First Name: <input type="text" id="fName" name="fName"></td>
+        </tr>
+
+    </table>
 </form>
 
 <form:form method="POST" action="/test/addItem" modelAttribute="addItemsToCart">

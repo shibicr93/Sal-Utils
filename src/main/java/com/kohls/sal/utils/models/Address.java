@@ -12,6 +12,10 @@ public class Address {
     private  String address2;
     private  String city;
     private  String stateCode;
+    private  String countryCode;
+    private  String zipCode;
+    private  String countyGeoCode;
+    private long id;
 
     public String getAddress1() {
         return address1;
@@ -77,8 +81,5 @@ public class Address {
         this.id = id;
     }
 
-    private  String countryCode;
-    private  String zipCode;
-    private  String countyGeoCode;
-    private long id;
+
 }

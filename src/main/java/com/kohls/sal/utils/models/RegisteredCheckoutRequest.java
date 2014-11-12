@@ -7,6 +7,15 @@ public class RegisteredCheckoutRequest {
 
     private AddUpdateCartItemsRequest addUpdateCartItemsRequest;
     private BillingShippingRequest billingShippingRequest;
+    private SubmitPaymentRequest submitPaymentRequest;
+
+    public SubmitPaymentRequest getSubmitPaymentRequest() {
+        return submitPaymentRequest;
+    }
+
+    public void setSubmitPaymentRequest(SubmitPaymentRequest submitPaymentRequest) {
+        this.submitPaymentRequest = submitPaymentRequest;
+    }
 
     public AddUpdateCartItemsRequest getAddUpdateCartItemsRequest() {
         return addUpdateCartItemsRequest;

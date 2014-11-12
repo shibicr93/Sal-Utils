@@ -15,7 +15,7 @@ public class User {  //NOPMD
     private Date dateOfBirth;
     private Phone phone;
     private String loyaltyPostalCode;
-    private boolean eligibleForExpeditedCheckout;
+
 
     public String getEmail() {
         return email;
@@ -63,14 +63,6 @@ public class User {  //NOPMD
 
     public void setLoyaltyPostalCode(String loyaltyPostalCode) {
         this.loyaltyPostalCode = loyaltyPostalCode;
-    }
-
-    public boolean isEligibleForExpeditedCheckout() {
-        return eligibleForExpeditedCheckout;
-    }
-
-    public void setEligibleForExpeditedCheckout(boolean eligibleForExpeditedCheckout) {
-        this.eligibleForExpeditedCheckout = eligibleForExpeditedCheckout;
     }
 }
 
