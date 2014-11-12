@@ -13,7 +13,7 @@ public class AddUpdateCartItemsRequest {
     private List<CartItem> addItemList;
     private List<CartItem> updateItemList;
     private List<CartItem> removeItemList;
-    private boolean expeditedCheckout = false;
+
 
     public User getUser() {
         return user;
@@ -71,13 +71,7 @@ public class AddUpdateCartItemsRequest {
         this.removeItemList = removeItemList;
     }
 
-    public boolean isExpeditedCheckout() {
-        return expeditedCheckout;
-    }
 
-    public void setExpeditedCheckout(boolean expeditedCheckout) {
-        this.expeditedCheckout = expeditedCheckout;
-    }
 }
 
 
