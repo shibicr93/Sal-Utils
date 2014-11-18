@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.SimpleFormController;
 
 import java.lang.annotation.Annotation;
 
@@ -20,13 +19,13 @@ public class HarnessController  implements Controller {
     @RequestMapping(value = "/addItem", method = RequestMethod.GET)
     public ModelAndView addItemToCart() {
         RegisteredCheckoutRequest registeredCheckoutRequest = new RegisteredCheckoutRequest();
-        return new ModelAndView("registeredCheckoutRequest", "registeredCheckoutRequest", registeredCheckoutRequest);
+        return new ModelAndView("index", "registeredCheckoutRequest", registeredCheckoutRequest);//
         }
 
     @RequestMapping(value = "/addItem", method = RequestMethod.POST)
-       public String addCartItem(@ModelAttribute AddItemsToCart addItemsToCart,ModelMap model) {
-        model.addAttribute(addItemsToCart.getAddItemsToCart());
-        return "result";
+       public ModelAndView addCartItem(RegisteredCheckoutRequest registeredCheckoutRequest) {
+
+        return new ModelAndView("result","registeredCheckoutRequest",registeredCheckoutRequest);
     }
 
     @Override
