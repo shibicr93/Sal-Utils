@@ -10,8 +10,8 @@ public class BillingShippingRequest {
     private Contact shippingContact;
     private User user;
     private boolean shippingAddressSameAsBillingAddress;
-    private String shippingMethod;
-    private ShoppingCart shoppingCart;
+    private String shippingMethod;//dropdown
+    private ShoppingCart shoppingCart;//no needed
     private ShippingOptions shippingOptions = new ShippingOptions();
     private boolean updateUser;
     private boolean expeditedCheckout = false;
