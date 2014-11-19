@@ -98,7 +98,7 @@
                 <table>
                     <tr>
                         <td>Shipping Method: <select name="billingShippingRequest.shippingMethod">
-                                                <option value="false">select</option>
+                                                <option value="false" selected>select</option>
                                                 <option value="method1">method1</option>
                                                 <option value="method2">method2</option>
                                                 <option value="method3">method3</option>
