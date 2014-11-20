@@ -9,6 +9,7 @@ public class RegisteredCheckoutRequest {
     private BillingShippingRequest billingShippingRequest;
     private SubmitPaymentRequest submitPaymentRequest;
 
+
     public SubmitPaymentRequest getSubmitPaymentRequest() {
         return submitPaymentRequest;
     }
