@@ -10,7 +10,7 @@ public class AddUpdateCartItemsRequest {
     private Credentials credentials;
     private boolean checkOut;
     private long cartId;
-    private List<CartItem> addItemList;
+    private List<AddCartItem> addItemList;
     private List<CartItem> updateItemList;
     private List<CartItem> removeItemList;
 
@@ -47,11 +47,11 @@ public class AddUpdateCartItemsRequest {
         this.cartId = cartId;
     }
 
-    public List<CartItem> getAddItemList() {
+    public List<AddCartItem> getAddItemList() {
         return addItemList;
     }
 
-    public void setAddItemList(List<CartItem> addItemList) {
+    public void setAddItemList(List<AddCartItem> addItemList) {
         this.addItemList = addItemList;
     }
 

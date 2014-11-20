@@ -1,6 +1,7 @@
 package com.kohls.sal.utils.controller;
 
 import com.kohls.sal.utils.models.AddItemsToCart;
+import com.kohls.sal.utils.models.AddUpdateCartItemsRequest;
 import com.kohls.sal.utils.models.RegisteredCheckoutRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -18,8 +19,8 @@ public class HarnessController  implements Controller {
 
     @RequestMapping(value = "/addItem", method = RequestMethod.GET)
     public ModelAndView addItemToCart() {
-        RegisteredCheckoutRequest registeredCheckoutRequest = new RegisteredCheckoutRequest();
-        return new ModelAndView("index", "registeredCheckoutRequest", registeredCheckoutRequest);//
+        AddUpdateCartItemsRequest addUpdateCartItemsRequest = new AddUpdateCartItemsRequest();
+        return new ModelAndView("addUpdateItems", "addUpdateCartItemsRequest", addUpdateCartItemsRequest);//
         }
 
     @RequestMapping(value = "/addItem", method = RequestMethod.POST)
