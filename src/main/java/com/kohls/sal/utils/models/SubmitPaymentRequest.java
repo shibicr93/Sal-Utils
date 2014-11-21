@@ -4,17 +4,30 @@ package com.kohls.sal.utils.models;
  * Created by Shermarajan on 11/10/2014.
  */
 public class SubmitPaymentRequest {
-    User user;
+
+
+    boolean isRegistered;
+    boolean expeditedCheckout = false;
     ShoppingCart shoppingCart;
+    User user;
+    PromoCode promoCode;
+    CreditCard creditCard;
+    boolean failfast;
 
-    protected Boolean isRegistered;
-
-    public User getUser() {
-        return user;
+    public boolean isRegistered() {
+        return isRegistered;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setRegistered(boolean isRegistered) {
+        this.isRegistered = isRegistered;
+    }
+
+    public boolean isExpeditedCheckout() {
+        return expeditedCheckout;
+    }
+
+    public void setExpeditedCheckout(boolean expeditedCheckout) {
+        this.expeditedCheckout = expeditedCheckout;
     }
 
     public ShoppingCart getShoppingCart() {
@@ -25,12 +38,36 @@ public class SubmitPaymentRequest {
         this.shoppingCart = shoppingCart;
     }
 
-    public Boolean getIsRegistered() {
-        return isRegistered;
+    public User getUser() {
+        return user;
     }
 
-    public void setIsRegistered(Boolean isRegistered) {
-        this.isRegistered = isRegistered;
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public PromoCode getPromoCode() {
+        return promoCode;
+    }
+
+    public void setPromoCode(PromoCode promoCode) {
+        this.promoCode = promoCode;
+    }
+
+    public CreditCard getCreditCard() {
+        return creditCard;
+    }
+
+    public void setCreditCard(CreditCard creditCard) {
+        this.creditCard = creditCard;
+    }
+
+    public boolean isFailfast() {
+        return failfast;
+    }
+
+    public void setFailfast(boolean failfast) {
+        this.failfast = failfast;
     }
 }
 

@@ -97,41 +97,40 @@
         <h2>Add Items to Cart:</h2>
 
 
+            <%  int x = 0; %>
+    <script>
+        $(document).ready(function() {
+            var max_fields      = 10; //maximum input boxes allowed
+            var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+            var add_button      = $(".add_field_button"); //Add button ID
+
+            var x = 1; //initlal text box count
 
 
-<script>
+            $(add_button).click(function(e){ //on add input button click
+                e.preventDefault();
+                if(x < max_fields){ //max input box allowed
+                     x++;
 
-    $(document).ready(function() {
-    var max_fields      = 10;
-    var wrapper         = $(".input_fields_wrap");
-    var add_button      = $(".add_field_button");
+                 //text box increment
+                    $(wrapper).append('<div><tr><td><%=++x%></td><td><input type="text" name="addUpdateCartItemsRequest.addItemList[<%=++x%>].skuCode" value="${addUpdateCartItemsRequest.addItemList.skuCode}" ></td> '
+                            +'<td><input type="text" name="addUpdateCartItemsRequest.addItemList[<%=++x%>].quantity" value="${addUpdateCartItemsRequest.addItemList.skuCode}"</td></tr></div>')}                         //add input box
+                    //<a href="#" class="remove_field">Remove</a>
 
-    var x = 1;
-    $(add_button).click(function(e){
-    e.preventDefault();
-    if(x < max_fields){
-    x++;
-    $(wrapper).append('<tr>
-            <%= x+1 %>
-             <td><input type="text" name="addUpdateCartItemsRequest.addItemList[<%=x%>].skuCode" value="${addUpdateCartItemsRequest.addItemList.skuCode}" ></td>
-             <td><input type="text" name="addUpdateCartItemsRequest.addItemList[<%=x%>]" value="${addUpdateCartItemsRequest.addItemList.quatity}" > </td>
-             <td><input type="text" name="addUpdateCartItemsRequest.addItemList[<%=x%>]" value="${addUpdateCartItemsRequest.addItemList.gift}"> </td>
-             </tr>  ');
+            });
 
-        }
+            $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+                e.preventDefault(); $(this).parent('div').remove(); x--;
+            })
         });
-
-        $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
-        e.preventDefault(); $(this).parent('div').remove(); x--;
-        })
-        });
-
-        </script>
+    </script>
 
         <div class="input_fields_wrap">
             <button class="add_field_button">Add More Fields</button>
-            <div><input type="text" name="mytext[]"></div>
+            <div><tr><td>s.no</td><td>sku code</td><td>quantity</td></tr>  </div>
+
         </div>
+
 
         <button class="xxx" type="submit">Submit</button>
 

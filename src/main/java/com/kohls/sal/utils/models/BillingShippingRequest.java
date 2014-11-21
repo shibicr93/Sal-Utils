@@ -9,6 +9,9 @@ public class BillingShippingRequest {
     private Contact billingContact;
     private Contact shippingContact;
     private User user;
+
+
+
     private boolean shippingAddressSameAsBillingAddress;
     private String shippingMethod;//dropdown
     private ShoppingCart shoppingCart;//no needed
