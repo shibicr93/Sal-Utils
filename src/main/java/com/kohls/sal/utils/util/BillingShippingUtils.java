@@ -15,5 +15,4 @@ import com.kohls.sal.utils.models.RegisteredCheckoutRequest;
 
     return registeredCheckoutRequest;
     }
-
 }

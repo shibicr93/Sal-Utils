@@ -20,9 +20,20 @@
         }
     </script>
 
+    <style>
+        body {background-color:#CCFFFF}
+        h1   {color:blue}
+        p    {color:green}
+        sup  {color:red}
+        legend {color:red}
+        tr  {width: 100%; height: 100%}
+
+
+    </style>
+
 </head>
 <body>
-<form:form  action="/test//billingShippingResponse" modelAttribute="registeredCheckoutRequest">
+<form:form  action="/test/billingShippingResponse" modelAttribute="registeredCheckoutRequest">
     <div>
         <fieldset>
             <legend>Billing Shipping request:</legend>
@@ -33,27 +44,28 @@
                     <table>
 
                         <tr>
-                            <td> First Name:<input name="billingShippingRequest.billingContact.names.firstName" required="true"><br></td>
-                            <td> Middle Name:<input type="text" name="billingShippingRequest.billingContact.names.middleName"  value=${billingContact.names.middleName}><br></td>
-                            <td> Last Name:<input type="text" name="billingShippingRequest.billingContact.names.lastName" required="true" value=${billingContact.names.lastName}><br></td>
+                            <td> First Name<sup>*</sup>:<input name="billingShippingRequest.billingContact.names.firstName" required="true"><br></td>
+                            <td> Middle Name:<input type="text" name="billingShippingRequest.billingContact.names.middleName"  ><br></td>
+                            <td> Last Name<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.names.lastName" required="true" ><br></td>
                         </tr>
                         <tr>
-                            <td> Address 1:<input type="text" name="billingShippingRequest.billingContact.address.address1" value=${billingContact.address.address1}></td>
-                            <td> Address 2:<input type="text" name="billingShippingRequest.billingContact.address.address2" value=${billingContact.address.address2}></td>
-                            <td> State Code:<input type="text" name="billingShippingRequest.billingContact.address.stateCode" required="true" value=${billingContact.address.stateCode}></td>
-                            <td> Country Code:<input type="text" name="billingShippingRequest.billingContact.address.countryCode" required="true" value=${billingContact.address.countryCode}></td>
-                            <td> Zip Code:<input type="text" name="billingShippingRequest.billingContact.address.zipCode" required="true" value=${billingContact.address.zipCode}></td>
-                            <td> County Geo Code:<input type="text" name="billingShippingRequest.billingContact.address.countyGeoCode" value=${billingContact.address.countyGeoCode}></td>
+                            <td> Address 1:<input type="text" name="billingShippingRequest.billingContact.address.address1" ></td>
+                            <td> Address 2:<input type="text" name="billingShippingRequest.billingContact.address.address2" ></td>
+                            <td> State Code<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.address.stateCode" required="true" ></td>
+                            <td> Country Code<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.address.countryCode" required="true" ></td>
+                            <td> Zip Code<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.address.zipCode" required="true"></td>
+                            <td> County Geo Code:<input type="text" name="billingShippingRequest.billingContact.address.countyGeoCode" ></td>
                         </tr>
                         <tr>
-                            <td> Area Code:<input type="text" name="billingShippingRequest.billingContact.phone.areaCode" value=${billingContact.phone.areaCode}></td>
-                            <td> Exchange:<input type="text" name="billingShippingRequest.billingContact.phone.exchange" value=${billingContact.phone.exchange}></td>
-                            <td> Extension:<input type="text" name="billingShippingRequest.billingContact.phone.extension" value=${billingContact.phone.extension}></td>
+                            <td> Area Code:<input type="text" name="billingShippingRequest.billingContact.phone.areaCode" ></td>
+                            <td> Exchange:<input type="text" name="billingShippingRequest.billingContact.phone.exchange"></td>
+                            <td> Extension:<input type="text" name="billingShippingRequest.billingContact.phone.extension" ></td>
                         </tr>
                         <tr>
-                            <td> Email:<input type="text" name="billingShippingRequest.billingContact.email"  value=${billingContact.email}></td>
+                            <td> Email:<input type="text" name="billingShippingRequest.billingContact.email" ></td>
                         </tr>
                     </table>
+
                 </fieldset>
             </div>
             </br></br>
@@ -66,22 +78,22 @@
                 <table>
 
                     <tr>
-                        <td> First Name:<input type="text" name="billingShippingRequest.shippingContact.names.firstName" required="true" value=${shippingContact.names.firstName}><br></td>
-                        <td> Middle Name:<input type="text" name="billingShippingRequest.shippingContact.names.middleName" value=${shippingContact.names.middleName}><br></td>
-                        <td> Last Name:<input type="text" name="billingShippingRequest.shippingContact.names.lastName" required="true" value=${shippingContact.names.lastName}><br></td>
+                        <td> First Name<sup>*</sup>:<input type="text" name="billingShippingRequest.shippingContact.names.firstName" ><br></td>
+                        <td> Middle Name:<input type="text" name="billingShippingRequest.shippingContact.names.middleName" ><br></td>
+                        <td> Last Name<sup>*</sup>:<input type="text" name="billingShippingRequest.shippingContact.names.lastName"  ><br></td>
                     </tr>
                     <tr>
-                        <td> Address 1:<input type="text" name="billingShippingRequest.shippingContact.address.address1" value=${shippingContact.address.address1}></td>
-                        <td> Address 2:<input type="text" name="billingShippingRequest.shippingContact.address.address2" value=${shippingContact.address.address2}></td>
-                        <td> State Code:<input type="text" name="billingShippingRequest.shippingContact.address.stateCode"  required="true" value=${shippingContact.address.stateCode}></td>
-                        <td> Country Code:<input type="text" name="billingShippingRequest.shippingContact.address.countryCode"  required="true" value=${shippingContact.address.countryCode}></td>
-                        <td> Zip Code:<input type="text" name="billingShippingRequest.shippingContact.address.zipCode" required="true" value=${shippingContact.address.zipCode}></td>
-                        <td> County Geo Code:<input type="text" name="billingShippingRequest.shippingContact.address.countyGeoCode" required="true" value=${shippingContact.address.countyGeoCode}></td>
+                        <td> Address 1:<input type="text" name="billingShippingRequest.shippingContact.address.address1" ></td>
+                        <td> Address 2:<input type="text" name="billingShippingRequest.shippingContact.address.address2" ></td>
+                        <td> State Code<sup>*</sup>:<input type="text" name="billingShippingRequest.shippingContact.address.stateCode"   ></td>
+                        <td> Country Code<sup>*</sup>:<input type="text" name="billingShippingRequest.shippingContact.address.countryCode" ></td>
+                        <td> Zip Code<sup>*</sup>:<input type="text" name="billingShippingRequest.shippingContact.address.zipCode"  ></td>
+                        <td> County Geo Code:<input type="text" name="billingShippingRequest.shippingContact.address.countyGeoCode"  ></td>
                     </tr>
                     <tr>
-                        <td> Area Code:<input type="text"  name="billingShippingRequest.shippingContact.phone.areaCode" value=${shippingContact.phone.areaCode}></td>
-                        <td> Exchange:<input type="text" name="billingShippingRequest.shippingContact.phone.exchange" value=${shippingContact.phone.exchange}></td>
-                        <td> Extension:<input type="text" name="billingShippingRequest.shippingContact.phone.extension" value=${shippingContact.phone.extension}></td>
+                        <td> Area Code:<input type="text"  name="billingShippingRequest.shippingContact.phone.areaCode" ></td>
+                        <td> Exchange:<input type="text" name="billingShippingRequest.shippingContact.phone.exchange" ></td>
+                        <td> Extension:<input type="text" name="billingShippingRequest.shippingContact.phone.extension" ></td>
                     </tr>
                     <tr>
                         <td> Email:<input type="text" name="billingShippingRequest.shippingContact.email" value=${shippingContact.email}></td>
@@ -97,13 +109,15 @@
             <div>
                 <table>
                     <tr>
-                        <td>Shipping Method: <select name="billingShippingRequest.shippingMethod">
-                                                <option value="false" selected>select</option>
-                                                <option value="method1">method1</option>
-                                                <option value="method2">method2</option>
-                                                <option value="method3">method3</option>
-                                                <option value="method4">method4</option>
-                                             </select>
+                        <td>Shipping Method:<input type="text" name="billingShippingRequest.shippingMethod">
+
+                            <%--<select name="billingShippingRequest.shippingMethod">--%>
+                                                <%--<option value="false" selected>select</option>--%>
+                                                <%--<option value="method1">method1</option>--%>
+                                                <%--<option value="method2">method2</option>--%>
+                                                <%--<option value="method3">method3</option>--%>
+                                                <%--<option value="method4">method4</option>--%>
+                                             <%--</select>--%>
                         </td>
                     </tr>
                     <tr>
@@ -124,7 +138,101 @@
 
         </fieldset>
     </div>
-    <input type="submit" value="submit">
+
+<div>
+    <fieldset>
+        <legend>Submit Payment Request </legend>
+
+        <div>
+            <fieldset>
+                <legend> credit card details </legend>
+                <table>
+
+                    <tr>
+                        <td>Card Holder Name:<input type="text" name="submitPaymentRequest.creditCard.cardHolderName" required="true" ></td>
+                        <td> Card Number:<input type="text" name="submitPaymentRequest.creditCard.cardNumber"required="true"   ></td>
+                        <td> Card brand:<select name="submitPaymentRequest.creditCard.cardBrand">
+                            <option value="KOHLS_CHARGE">KOHLS_CHARGE</option>
+                            <option value="AMERICAN_EXPRESS" > AMERICAN_EXPRESS</option>
+                            <option value="DISCOVER_NETWORK" >DISCOVER_NETWORK</option>
+                            <option value="MASTERCARD" >MASTERCARD</option>
+                            <option value="VISA" > VISA</option>
+                            <option value="KOHLS_GIFT_CARD" >KOHLS_GIFT_CARD </option>
+                            <option value="KOHLS_MERCHANT_GIFT_CARD" > KOHLS_MERCHANT_GIFT_CARD</option>
+                            <option value="KOHLS_CASH" selected>  KOHLS_CASH</option>
+                            <option value="KOHLS_MERCHANT_CARD" >  KOHLS_MERCHANT_CARD</option>
+                        </select>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Card Month:<input type="text" name="submitPaymentRequest.creditCard.cardMonth" required="true"></td>
+                        <td>Card Year:<input name="submitPaymentRequest.creditCard.cardYear" required="true"></td>
+                        <td>CID:<input name="submitPaymentRequest.creditCard.cid" required="true"></td>
+                    </tr>
+                    <tr>
+                        <td>Amount:<input name="submitPaymentRequest.creditCard.amount"  ></td>
+                        <td>Remaining Balance:<input name="submitPaymentRequest.creditCard.remBal"  ></td>
+                        <td>CCID:<input name="submitPaymentRequest.creditCard.ccdId" required="true" ></td>
+                    </tr>
+                    <tr>
+                        <td>Expiration Date:<input  name="submitPaymentRequest.creditCard.expirationDate" required="true" ></td>
+                        <td><input type="checkbox" name="submitPaymentRequest.creditCard.expeditedCheckout" value="true">Expedited checkout</td>
+                        <td><input type="checkbox" name="submitPaymentRequest.creditCard.eligibleForExpeditedCheckout" value="true">Eligible for Expedited checkout</td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+
+
+        <div>
+
+            <fieldset>
+                <legend> PromoCode details </legend>
+                <table>
+
+                    <tr>
+                        <td>Code:<input name="submitPaymentRequest.promoCode.code" required="true"></td>
+                        <td> Amount:<input name="submitPaymentRequest.promoCode.amount" required="true"  ></td>
+                        <td> PromoCode Type:<select name="submitPaymentRequest.promoCode.type">
+                            <option value="D" selected >D</option>
+                            <option value="  DA" >  DA</option>
+                            <option value=" DP" > DP</option>
+                            <option value=" FS" > FS</option>
+                            <option value=" PP" > PP</option>
+                        </select>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>Percentage:<input name="submitPaymentRequest.promoCode.percentage" required="true"></td>
+                        <td>PromoId:<input name="submitPaymentRequest.promoCode.promoId" required="true"></td>
+                        <td>Offer Scope:<input name="submitPaymentRequest.promoCode.offerScope" required="true"></td>
+                        <td><input type="checkbox" name="submitPaymentRequest.promoCode.applied" value="true">Applied</td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+
+
+
+        <tr>
+
+            <td><input type="checkbox" name="submitPaymentRequest.expeditedCheckout" value="true">Expedited checkout</td>
+            <td><input type="checkbox" name="submitPaymentRequest.registered" value="true" >is Registered</td>
+            <td><input type="checkbox" name="submitPaymentRequest.failfast" value="true">Fail fast</td>
+        </tr>
+
+        </table>
+    </fieldset>
+
+
+    <p align="center">
+    <input type="submit" value="Submit"> <input type="reset" value="Clear All">
+    </p>
+
+
+
 </form:form>
 </body>
 </html>
