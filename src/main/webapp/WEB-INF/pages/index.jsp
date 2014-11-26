@@ -11,6 +11,7 @@
 
     <title>Request page</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="dynamicList.js"></script>
     <script type="application/javascript">
         function toggle(className, obj) {
             var $input = $(obj);
@@ -19,12 +20,67 @@
 
         }
 
-        function getCount(){
-            var count = document.getElementById(count).value;
-            alert(count);
-            return count;
-        }
     </script>
+    <SCRIPT language="javascript">
+        function addRow(tableID) {
+
+            var table = document.getElementById(tableID);
+
+            var rowCount = table.rows.length;
+            var row = table.insertRow(rowCount);
+
+            var cell1 = row.insertCell(0);
+            var element1 = document.createElement("input");
+            element1.type = "checkbox";
+            element1.name="chkbox[]";
+            cell1.appendChild(element1);
+
+            var cell2 = row.insertCell(1);
+            cell2.innerHTML = rowCount;
+
+            var cell3 = row.insertCell(2);
+            var element3 = document.createElement("input");
+            element3.type = "text";
+            element3.name="addUpdateCartItemsRequest.addItemList["+rowCount+"].skuCode";
+            cell3.appendChild(element3);
+
+            var cell4 = row.insertCell(3);
+            var element4 = document.createElement("input");
+            element4.type = "text";
+            element4.name="addUpdateCartItemsRequest.addItemList["+rowCount+"].quantity";
+            cell4.appendChild(element4);
+
+            var cell5 = row.insertCell(4);
+            var element5 = document.createElement("input");
+            element5.type = "checkbox";
+            element5.name="addUpdateCartItemsRequest.addItemList["+rowCount+"].gift";
+            cell5.appendChild(element5);
+
+
+        }
+
+        function deleteRow(tableID) {
+            try {
+                var table = document.getElementById(tableID);
+                var rowCount = table.rows.length;
+
+                for(var i=0; i<rowCount; i++) {
+                    var row = table.rows[i];
+                    var chkbox = row.cells[0].childNodes[0];
+                    if(null != chkbox && true == chkbox.checked) {
+                        table.deleteRow(i);
+                        rowCount--;
+                        i--;
+                    }
+
+
+                }
+            }catch(e) {
+                alert(e);
+            }
+        }
+
+    </SCRIPT>
 
     <style>
         body {background-color:#CCFFFF}
@@ -40,11 +96,6 @@
 </head>
 <h2>Request page</h2>
 <body>
-<form method="get" action="/test/request">
-    Number of Cart Items to add: <input name="count" id="count" type="text" placeholder="number">
-    <input type="submit" name="add" value="add">
-</form>
-
 <form:form  action="/test/response" modelAttribute="registeredCheckoutRequest">
 
 <div>
@@ -53,34 +104,16 @@
         <div>
             <fieldset>
                 <legend>Add Items to Cart</legend>
-                <table>
+                <table id ="addItemTable" border="all">
+                    <INPUT type="button" value="Add Row" onclick="addRow('addItemTable')" />
+                    <INPUT type="button" value="Delete Row" onclick="deleteRow('addItemTable')" />
                     <tr>
+                        <th>Remove?</th></br>
                         <th>S.No.</th></br>
                         <th>Sku Code</th></br>
                         <th>Quantity</th></br>
                         <th>Gift</th></br>
                     </tr>
-                    <%
-                        if (request.getParameter("count")!=null){
-                            String count;
-                            try{
-                                count = request.getParameter("count");
-                            }catch (Exception e)
-                            {
-                                count = "0";
-                                e.getMessage();
-                            }
-
-                            int ctr = Integer.parseInt(count);
-                            for(int i = 0; i<ctr ; i++) { %>
-                    <tr>
-                        <td><%=i+1%></td>
-                        <td > <input type="text" name="addUpdateCartItemsRequest.addItemList[<%=i%>].skuCode" placeholder="Required a number"/></td>
-                        <td> <input type="text" name="addUpdateCartItemsRequest.addItemList[<%=i%>].quantity" placeholder="Required a number"/></td>
-                        <td> <input type="checkbox" name="addUpdateCartItemsRequest.addItemList[<%=i%>].gift"/></td>
-                    </tr>
-
-                    <%}};%>
                 </table>
             </fieldset>
         </div>
