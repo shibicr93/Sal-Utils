@@ -26,7 +26,7 @@ public class PromoCode {
     PromoCodeType type;
     Double amount;
     Double percentage;
-    Boolean applied;
+    Boolean applied=false;
     Long promoId;
     String offerScope;
 

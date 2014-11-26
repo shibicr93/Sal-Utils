@@ -9,7 +9,7 @@
 <html>
 <head>
 
-    <title>BillingShipping</title>
+    <title>Request page</title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script type="application/javascript">
         function toggle(className, obj) {
@@ -17,6 +17,12 @@
             if ($input.prop('checked')) $(className).hide(500);
             else $(className).show(500);
 
+        }
+
+        function getCount(){
+            var count = document.getElementById(count).value;
+            alert(count);
+            return count;
         }
     </script>
 
@@ -34,45 +40,16 @@
 </head>
 <h2>Request page</h2>
 <body>
+<form method="get" action="/test/request">
+    Number of Cart Items to add: <input name="count" id="count" type="text" placeholder="number">
+    <input type="submit" name="add" value="add">
+</form>
+
 <form:form  action="/test/response" modelAttribute="registeredCheckoutRequest">
 
 <div>
     <fieldset>
         <legend align="center">AddUpdateCartItemsRequest</legend>
-
-        <div>
-            <fieldset>
-                <legend>User Information:</legend>
-                <table>
-                    <tr>
-
-                        <td>First Name :<input type="text" name="addUpdateCartItemsRequest.user.names.firstName" required="true"><br></td>
-                        <td> Last Name:<input type="text" name="addUpdateCartItemsRequest.user.names.lastName" required="true" ><br></td>
-                        <td> Middle Name:<input type="text" name="addUpdateCartItemsRequest.user.names.MiddleName" required="true" ><br></td>
-                    </tr>
-                    <tr>
-                        <td> Email:<input name="addUpdateCartItemsRequest.user.email" required="true"><br></td>
-                        <td>Loyalty Id :<input type="text" name="addUpdateCartItemsRequest.user.loyaltyId" required="true"><br></td>
-                        <td>Date Of Birth :<input type="text" name="addUpdateCartItemsRequest.user.dateOfBirth" required="true"><br></td>
-                    </tr>
-                    <tr>
-                        <td> Area Code:<input type="text" name="addUpdateCartItemsRequest.user.phone.areaCode" ></td>
-                        <td> Exchange:<input type="text" name="addUpdateCartItemsRequest.user.phone.exchange" ></td>
-                        <td> Extension:<input type="text" name="addUpdateCartItemsRequest.user.phone.extension" ></td>
-                        <td> LoyaltyPostalCode:<input type="text" name="addUpdateCartItemsRequest.user.loyaltyPostalCode" ></td>
-                    </tr>
-                    <tr>
-                        <td>UserId :<input type="text" name="addUpdateCartItemsRequest.credentials.userId" required="true"><br></td></td>
-                        <td>Password :<input type="text" name="addUpdateCartItemsRequest.credentials.password" required="true"><br></td>
-                    </tr>
-                    <tr>
-                        <td>CheckOut :<input type="radio" name="addUpdateCartItemsRequest.checkOut" value="true"><br></td>
-                        <td>CartId :<input type="text" name="addUpdateCartItemsRequest.cartId"><br></td>
-                    </tr>
-                </table>
-            </fieldset>
-        </div>
-        </br></br>
         <div>
             <fieldset>
                 <legend>Add Items to Cart</legend>
@@ -84,16 +61,26 @@
                         <th>Gift</th></br>
                     </tr>
                     <%
-                        int j=3;
-                        for(int i = 0; i<j ; i++) { %>
+                        if (request.getParameter("count")!=null){
+                            String count;
+                            try{
+                                count = request.getParameter("count");
+                            }catch (Exception e)
+                            {
+                                count = "0";
+                                e.getMessage();
+                            }
+
+                            int ctr = Integer.parseInt(count);
+                            for(int i = 0; i<ctr ; i++) { %>
                     <tr>
                         <td><%=i+1%></td>
-                        <td > <input type="text" name="addUpdateCartItemsRequest.addItemList[<%=i%>].skuCode"/></td>
-                        <td> <input type="text" name="addUpdateCartItemsRequest.addItemList[<%=i%>].quantity"/></td>
+                        <td > <input type="text" name="addUpdateCartItemsRequest.addItemList[<%=i%>].skuCode" placeholder="Required a number"/></td>
+                        <td> <input type="text" name="addUpdateCartItemsRequest.addItemList[<%=i%>].quantity" placeholder="Required a number"/></td>
                         <td> <input type="checkbox" name="addUpdateCartItemsRequest.addItemList[<%=i%>].gift"/></td>
                     </tr>
 
-                    <%}%>
+                    <%}};%>
                 </table>
             </fieldset>
         </div>
@@ -101,6 +88,42 @@
     </fieldset>
 
 </div>
+</br></br>
+
+        <div>
+            <fieldset>
+                <legend>User Information:</legend>
+                <table>
+                    <tr>
+
+                        <td>First Name :<input type="text" name="addUpdateCartItemsRequest.user.names.firstName"  required="true"><br></td>
+                        <td> Last Name:<input type="text" name="addUpdateCartItemsRequest.user.names.lastName"  required="true" ><br></td>
+                        <td> Middle Name:<input type="text" name="addUpdateCartItemsRequest.user.names.MiddleName" required="true" ><br></td>
+                    </tr>
+                    <tr>
+                        <td> Email:<input name="addUpdateCartItemsRequest.user.email" required="true"><br></td>
+                        <td>Loyalty Id :<input type="text" name="addUpdateCartItemsRequest.user.loyaltyId"  required="true"><br></td>
+                        <td>Date Of Birth :<input type="text" name="addUpdateCartItemsRequest.user.dateOfBirth"  placeholder="04-Mar-1989" required="true"><br></td>
+                    </tr>
+                    <tr>
+                        <td> Area Code:<input type="text" name="addUpdateCartItemsRequest.user.phone.areaCode"  ></td>
+                        <td> Exchange:<input type="text" name="addUpdateCartItemsRequest.user.phone.exchange" ></td>
+                        <td> Extension:<input type="text" name="addUpdateCartItemsRequest.user.phone.extension"  ></td>
+                        <td> LoyaltyPostalCode:<input type="text" name="addUpdateCartItemsRequest.user.loyaltyPostalCode"  ></td>
+                    </tr>
+                    <tr>
+                        <td>UserId :<input type="text" name="addUpdateCartItemsRequest.credentials.userId" required="true"><br></td></td>
+                        <td>Password :<input type="text" name="addUpdateCartItemsRequest.credentials.password" required="true"><br></td>
+                    </tr>
+                    <tr>
+                        <td>CheckOut :<input type="checkbox" name="addUpdateCartItemsRequest.checkOut" value="true"><br></td>
+                        <td>CartId :<input type="text" name="addUpdateCartItemsRequest.cartId" placeholder="Required a number" required="true"><br></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+        </br></br>
+
 </br></br>
 
 <div>
@@ -121,14 +144,14 @@
                         <td> Address 1:<input type="text" name="billingShippingRequest.billingContact.address.address1" ></td>
                         <td> Address 2:<input type="text" name="billingShippingRequest.billingContact.address.address2" ></td>
                         <td> State Code<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.address.stateCode" required="true" ></td>
-                        <td> Country Code<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.address.countryCode" required="true" ></td>
-                        <td> Zip Code<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.address.zipCode" required="true"></td>
+                        <td> Country Code<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.address.countryCode" required="true"  ></td>
+                        <td> Zip Code<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.address.zipCode" required="true" ></td>
                         <td> County Geo Code:<input type="text" name="billingShippingRequest.billingContact.address.countyGeoCode" ></td>
                     </tr>
                     <tr>
-                        <td> Area Code:<input type="text" name="billingShippingRequest.billingContact.phone.areaCode" ></td>
-                        <td> Exchange:<input type="text" name="billingShippingRequest.billingContact.phone.exchange"></td>
-                        <td> Extension:<input type="text" name="billingShippingRequest.billingContact.phone.extension" ></td>
+                        <td> Area Code:<input type="text" name="billingShippingRequest.billingContact.phone.areaCode"></td>
+                        <td> Exchange:<input type="text" name="billingShippingRequest.billingContact.phone.exchange" ></td>
+                        <td> Extension:<input type="text" name="billingShippingRequest.billingContact.phone.extension"></td>
                     </tr>
                     <tr>
                         <td> Email:<input type="text" name="billingShippingRequest.billingContact.email" ></td>
@@ -218,7 +241,7 @@
 
                     <tr>
                         <td>Card Holder Name:<input type="text" name="submitPaymentRequest.creditCard.cardHolderName" required="true" ></td>
-                        <td> Card Number:<input type="text" name="submitPaymentRequest.creditCard.cardNumber"required="true"   ></td>
+                        <td> Card Number:<input type="text" name="submitPaymentRequest.creditCard.cardNumber"required="true"  placeholder="number" ></td>
                         <td> Card brand:<select name="submitPaymentRequest.creditCard.cardBrand">
                             <option value="KOHLS_CHARGE">KOHLS_CHARGE</option>
                             <option value="AMERICAN_EXPRESS" > AMERICAN_EXPRESS</option>
@@ -234,14 +257,14 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Card Month:<input type="text" name="submitPaymentRequest.creditCard.cardMonth" required="true"></td>
-                        <td>Card Year:<input name="submitPaymentRequest.creditCard.cardYear" required="true"></td>
-                        <td>CID:<input name="submitPaymentRequest.creditCard.cid" required="true"></td>
+                        <td>Card Month:<input type="text" name="submitPaymentRequest.creditCard.cardMonth" required="true" placeholder="Required a number"></td>
+                        <td>Card Year:<input name="submitPaymentRequest.creditCard.cardYear" required="true" placeholder="Required a number"></td>
+                        <td>CID:<input name="submitPaymentRequest.creditCard.cid" required="true" placeholder="number"></td>
                     </tr>
                     <tr>
-                        <td>Amount:<input name="submitPaymentRequest.creditCard.amount"  ></td>
-                        <td>Remaining Balance:<input name="submitPaymentRequest.creditCard.remBal"  ></td>
-                        <td>CCID:<input name="submitPaymentRequest.creditCard.ccdId" required="true" ></td>
+                        <td>Amount:<input name="submitPaymentRequest.creditCard.amount"  placeholder="Required a number" ></td>
+                        <td>Remaining Balance:<input name="submitPaymentRequest.creditCard.remBal" placeholder="Required a number" ></td>
+                        <td>CCID:<input name="submitPaymentRequest.creditCard.ccdId" required="true" placeholder="Required a number"></td>
                     </tr>
                     <tr>
                         <td>Expiration Date:<input  name="submitPaymentRequest.creditCard.expirationDate" required="true" ></td>
@@ -261,7 +284,7 @@
 
                     <tr>
                         <td>Code:<input name="submitPaymentRequest.promoCode.code" required="true"></td>
-                        <td> Amount:<input name="submitPaymentRequest.promoCode.amount" required="true"  ></td>
+                        <td> Amount:<input name="submitPaymentRequest.promoCode.amount" required="true" placeholder="Required a number" ></td>
                         <td> PromoCode Type:<select name="submitPaymentRequest.promoCode.type">
                             <option value="D" selected >D</option>
                             <option value="  DA" >  DA</option>
@@ -273,8 +296,8 @@
 
                     </tr>
                     <tr>
-                        <td>Percentage:<input name="submitPaymentRequest.promoCode.percentage" required="true"></td>
-                        <td>PromoId:<input name="submitPaymentRequest.promoCode.promoId" required="true"></td>
+                        <td>Percentage:<input name="submitPaymentRequest.promoCode.percentage" required="true" placeholder="Required a number"></td>
+                        <td>PromoId:<input name="submitPaymentRequest.promoCode.promoId" required="true" placeholder="Required a number"></td>
                         <td>Offer Scope:<input name="submitPaymentRequest.promoCode.offerScope" required="true"></td>
                         <td><input type="checkbox" name="submitPaymentRequest.promoCode.applied" value="true">Applied</td>
                     </tr>
