@@ -85,11 +85,6 @@
             </fieldset>
         </div>
         </br></br>
-    </fieldset>
-
-</div>
-</br></br>
-
         <div>
             <fieldset>
                 <legend>User Information:</legend>
@@ -122,7 +117,17 @@
                 </table>
             </fieldset>
         </div>
+
+
+
+
         </br></br>
+    </fieldset>
+
+</div>
+</br></br>
+
+
 
 </br></br>
 
