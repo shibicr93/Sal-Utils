@@ -41,6 +41,7 @@
             var cell3 = row.insertCell(2);
             var element3 = document.createElement("input");
             element3.type = "text";
+
             element3.name="addUpdateCartItemsRequest.addItemList["+rowCount+"].skuCode";
             cell3.appendChild(element3);
 
@@ -110,7 +111,7 @@
                     <tr>
                         <th>Remove?</th></br>
                         <th>S.No.</th></br>
-                        <th>Sku Code</th></br>
+                        <th>Sku Code </th></br>
                         <th>Quantity</th></br>
                         <th>Gift</th></br>
                     </tr>
@@ -124,28 +125,29 @@
                 <table>
                     <tr>
 
-                        <td>First Name :<input type="text" name="addUpdateCartItemsRequest.user.names.firstName"  required="true"><br></td>
-                        <td> Last Name:<input type="text" name="addUpdateCartItemsRequest.user.names.lastName"  required="true" ><br></td>
-                        <td> Middle Name:<input type="text" name="addUpdateCartItemsRequest.user.names.MiddleName" required="true" ><br></td>
+                        <td>First Name :<sup>*</sup><input type="text" name="addUpdateCartItemsRequest.user.names.firstName"  required="true" placeholder="first name" id = "UfirstName"><br></td>
+                        <td> Middle Name:<input type="text" name="addUpdateCartItemsRequest.user.names.MiddleName" required="true"placeholder="middle name" id = "UMiddleName" ><br></td>
+                        <td> Last Name:<sup>*</sup><input type="text" name="addUpdateCartItemsRequest.user.names.lastName"  required="true" placeholder="last name"id = "UlastName" ><br></td>
+
                     </tr>
                     <tr>
-                        <td> Email:<input name="addUpdateCartItemsRequest.user.email" required="true"><br></td>
-                        <td>Loyalty Id :<input type="text" name="addUpdateCartItemsRequest.user.loyaltyId"  required="true"><br></td>
-                        <td>Date Of Birth :<input type="text" name="addUpdateCartItemsRequest.user.dateOfBirth"  placeholder="04-Mar-1989" required="true"><br></td>
+                        <td> Email:<sup>*</sup><input name="addUpdateCartItemsRequest.user.email" required="true" placeholder="eg:xyz@example.com" id = "Uemail"><br></td>
+                        <td>Loyalty Id :<input type="text" name="addUpdateCartItemsRequest.user.loyaltyId"  required="true" placeholder="loyalty id" id = "UloyaltyId" ><br></td>
+                        <td>Date Of Birth :<input type="text" name="addUpdateCartItemsRequest.user.dateOfBirth"  placeholder="eg:15-Apr-2001" required="true" id = "UdateOfBirth" ><br></td>
                     </tr>
                     <tr>
-                        <td> Area Code:<input type="text" name="addUpdateCartItemsRequest.user.phone.areaCode"  ></td>
-                        <td> Exchange:<input type="text" name="addUpdateCartItemsRequest.user.phone.exchange" ></td>
-                        <td> Extension:<input type="text" name="addUpdateCartItemsRequest.user.phone.extension"  ></td>
-                        <td> LoyaltyPostalCode:<input type="text" name="addUpdateCartItemsRequest.user.loyaltyPostalCode"  ></td>
+                        <td> Area Code:<sup>*</sup><input type="text" name="addUpdateCartItemsRequest.user.phone.areaCode" placeholder="eg 602" id = "UareaCode"></td>
+                        <td> Exchange:<input type="text" name="addUpdateCartItemsRequest.user.phone.exchange" placeholder="exchange" id = "Uexchange"></td>
+                        <td> Extension:<input type="text" name="addUpdateCartItemsRequest.user.phone.extension" placeholder="extension" id = "Uextension"></td>
+                        <td> LoyaltyPostalCode:<input type="text" name="addUpdateCartItemsRequest.user.loyaltyPostalCode" placeholder="loyalty postal code" id = "UloyaltyPostalCode"></td>
                     </tr>
                     <tr>
-                        <td>UserId :<input type="text" name="addUpdateCartItemsRequest.credentials.userId" required="true"><br></td></td>
-                        <td>Password :<input type="text" name="addUpdateCartItemsRequest.credentials.password" required="true"><br></td>
+                        <td>UserId :<sup>*</sup><input type="text" name="addUpdateCartItemsRequest.credentials.userId" required="true" placeholder="userid" id = "UuserId"><br></td></td>
+                        <td>Password <sup>*</sup>:<input type="text" name="addUpdateCartItemsRequest.credentials.password" required="true" placeholder="password" id = "Upassword"><br></td>
                     </tr>
                     <tr>
-                        <td>CheckOut :<input type="checkbox" name="addUpdateCartItemsRequest.checkOut" value="true"><br></td>
-                        <td>CartId :<input type="text" name="addUpdateCartItemsRequest.cartId" placeholder="Required a number" required="true"><br></td>
+                        <td>CheckOut :<input type="checkbox" name="addUpdateCartItemsRequest.checkOut" value="true" id = "UcheckOut"><br></td>
+                        <td>CartId :<sup>*</sup><input type="text" name="addUpdateCartItemsRequest.cartId" placeholder="cartId number" required="true" id = "UcartId"><br></td>
                     </tr>
                 </table>
             </fieldset>
@@ -174,25 +176,25 @@
                 <table>
 
                     <tr>
-                        <td> First Name<sup>*</sup>:<input name="billingShippingRequest.billingContact.names.firstName" required="true"><br></td>
-                        <td> Middle Name:<input type="text" name="billingShippingRequest.billingContact.names.middleName"  ><br></td>
-                        <td> Last Name<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.names.lastName" required="true" ><br></td>
+                        <td> First Name<sup>*</sup>:<input name="billingShippingRequest.billingContact.names.firstName" required="true" placeholder="first name" id="BfirstName"><br></td>
+                        <td> Middle Name:<input type="text" name="billingShippingRequest.billingContact.names.middleName" placeholder="middle name" id = "BmiddleName" ><br></td>
+                        <td> Last Name<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.names.lastName" required="true" placeholder="last name" id = "BlastName"><br></td>
                     </tr>
                     <tr>
-                        <td> Address 1:<input type="text" name="billingShippingRequest.billingContact.address.address1" ></td>
-                        <td> Address 2:<input type="text" name="billingShippingRequest.billingContact.address.address2" ></td>
-                        <td> State Code<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.address.stateCode" required="true" ></td>
-                        <td> Country Code<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.address.countryCode" required="true"  ></td>
-                        <td> Zip Code<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.address.zipCode" required="true" ></td>
-                        <td> County Geo Code:<input type="text" name="billingShippingRequest.billingContact.address.countyGeoCode" ></td>
+                        <td> Address 1:<input type="text" name="billingShippingRequest.billingContact.address.address1" placeholder="address1" id = "Baddress1"></td>
+                        <td> Address 2:<input type="text" name="billingShippingRequest.billingContact.address.address2" placeholder="address2" id = "Baddress2"></td>
+                        <td> State Code<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.address.stateCode" required="true" placeholder="eg TN" id="BstateCode"></td>
+                        <td> Country Code<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.address.countryCode" required="true" placeholder="eg IN, IND" id="BcountryCode"></td>
+                        <td> Zip Code<sup>*</sup>:<input type="text" name="billingShippingRequest.billingContact.address.zipCode" required="true" placeholder="eg:517129" id="BzipCode"></td>
+                        <td> County Geo Code:<input type="text" name="billingShippingRequest.billingContact.address.countyGeoCode" placeholder="country geo code" id="BcountyGeoCode"></td>
                     </tr>
                     <tr>
-                        <td> Area Code:<input type="text" name="billingShippingRequest.billingContact.phone.areaCode"></td>
-                        <td> Exchange:<input type="text" name="billingShippingRequest.billingContact.phone.exchange" ></td>
-                        <td> Extension:<input type="text" name="billingShippingRequest.billingContact.phone.extension"></td>
+                        <td> Area Code:<input type="text" name="billingShippingRequest.billingContact.phone.areaCode" placeholder="eg 602" id = "BareaCode"></td>
+                        <td> Exchange:<input type="text" name="billingShippingRequest.billingContact.phone.exchange" placeholder="exchange" id="Bexchange"></td>
+                        <td> Extension:<input type="text" name="billingShippingRequest.billingContact.phone.extension"placeholder="extension" id="Bextension"></td>
                     </tr>
                     <tr>
-                        <td> Email:<input type="text" name="billingShippingRequest.billingContact.email" ></td>
+                        <td> Email:<sup>*</sup><input type="text" name="billingShippingRequest.billingContact.email" placeholder="xyz@example.com" id="Bemail" ></td>
                     </tr>
                 </table>
 
@@ -208,25 +210,25 @@
                 <table>
 
                     <tr>
-                        <td> First Name<sup>*</sup>:<input type="text" name="billingShippingRequest.shippingContact.names.firstName" ><br></td>
-                        <td> Middle Name:<input type="text" name="billingShippingRequest.shippingContact.names.middleName" ><br></td>
-                        <td> Last Name<sup>*</sup>:<input type="text" name="billingShippingRequest.shippingContact.names.lastName"  ><br></td>
+                        <td> First Name<sup>*</sup>:<input type="text" name="billingShippingRequest.shippingContact.names.firstName"placeholder="first name" id="SfirstName" ><br></td>
+                        <td> Middle Name:<input type="text" name="billingShippingRequest.shippingContact.names.middleName" placeholder="middle name" id="SmiddleName" ><br></td>
+                        <td> Last Name<sup>*</sup>:<input type="text" name="billingShippingRequest.shippingContact.names.lastName" placeholder="last name" id="SlastName" ><br></td>
                     </tr>
                     <tr>
-                        <td> Address 1:<input type="text" name="billingShippingRequest.shippingContact.address.address1" ></td>
-                        <td> Address 2:<input type="text" name="billingShippingRequest.shippingContact.address.address2" ></td>
-                        <td> State Code<sup>*</sup>:<input type="text" name="billingShippingRequest.shippingContact.address.stateCode"   ></td>
-                        <td> Country Code<sup>*</sup>:<input type="text" name="billingShippingRequest.shippingContact.address.countryCode" ></td>
-                        <td> Zip Code<sup>*</sup>:<input type="text" name="billingShippingRequest.shippingContact.address.zipCode"  ></td>
-                        <td> County Geo Code:<input type="text" name="billingShippingRequest.shippingContact.address.countyGeoCode"  ></td>
+                        <td> Address 1:<input type="text" name="billingShippingRequest.shippingContact.address.address1"placeholder="address1"id="Saddress1"></td>
+                        <td> Address 2:<input type="text" name="billingShippingRequest.shippingContact.address.address2" placeholder="addres2" id="Saddress2"></td>
+                        <td> State Code<sup>*</sup>:<input type="text" name="billingShippingRequest.shippingContact.address.stateCode"placeholder="eg:TN"  id="SstateCode" ></td>
+                        <td> Country Code<sup>*</sup>:<input type="text" name="billingShippingRequest.shippingContact.address.countryCode" placeholder="eg IN, IND" id="ScountryCode"></td>
+                        <td> Zip Code<sup>*</sup>:<input type="text" name="billingShippingRequest.shippingContact.address.zipCode" placeholder="eg:517129" id="SzipCode" ></td>
+                        <td> County Geo Code:<input type="text" name="billingShippingRequest.shippingContact.address.countyGeoCode" placeholder="country geo code" id="ScountyGeoCode"></td>
                     </tr>
                     <tr>
-                        <td> Area Code:<input type="text"  name="billingShippingRequest.shippingContact.phone.areaCode" ></td>
-                        <td> Exchange:<input type="text" name="billingShippingRequest.shippingContact.phone.exchange" ></td>
-                        <td> Extension:<input type="text" name="billingShippingRequest.shippingContact.phone.extension" ></td>
+                        <td> Area Code:<input type="text"  name="billingShippingRequest.shippingContact.phone.areaCode" placeholder="eg 602" id="SareaCode"></td>
+                        <td> Exchange:<input type="text" name="billingShippingRequest.shippingContact.phone.exchange"placeholder="exchange" id="Sexchange" ></td>
+                        <td> Extension:<input type="text" name="billingShippingRequest.shippingContact.phone.extension"placeholder="extension" id="Sextension"></td>
                     </tr>
                     <tr>
-                        <td> Email:<input type="text" name="billingShippingRequest.shippingContact.email" value=${shippingContact.email}></td>
+                        <td> Email:<sup>*</sup><input type="text" name="billingShippingRequest.shippingContact.email" placeholder="eg:xyz@example.com" id="Semail" ></td>
                     </tr>
 
                 </table>
@@ -237,7 +239,7 @@
         <div>
             <table>
                 <tr>
-                    <td>Shipping Method:<input type="text" name="billingShippingRequest.shippingMethod">
+                    <td>Shipping Method:<input type="text" name="billingShippingRequest.shippingMethod" placeholder="USND " id="SshippingMethod">
 
                             <%--<select name="billingShippingRequest.shippingMethod">--%>
                             <%--<option value="false" selected>select</option>--%>
@@ -249,11 +251,11 @@
                     </td>
                 </tr>
                 <tr>
-                    <td > <input type="checkbox" name="billingShippingRequest.expeditedCheckout" value="true"> Expedited Checkout
+                    <td > <input type="checkbox" name="billingShippingRequest.expeditedCheckout" value="true" id="SexpeditedCheckout"> Expedited Checkout
 
 
                     </td>
-                    <td >  <input type="checkbox" name="billingShippingRequest.validateShippingMethod" value="true"> Validate ShippingMethod
+                    <td >  <input type="checkbox" name="billingShippingRequest.validateShippingMethod" value="true" id="SvalidateShippingMethod"> Validate ShippingMethod
 
 
                     </td>
@@ -278,9 +280,9 @@
                 <table>
 
                     <tr>
-                        <td>Card Holder Name:<input type="text" name="submitPaymentRequest.creditCard.cardHolderName" required="true" ></td>
-                        <td> Card Number:<input type="text" name="submitPaymentRequest.creditCard.cardNumber"required="true"  placeholder="number" ></td>
-                        <td> Card brand:<select name="submitPaymentRequest.creditCard.cardBrand">
+                        <td>Card Holder Name<sup>*</sup>:<input type="text" name="submitPaymentRequest.creditCard.cardHolderName" required="true" placeholder="card holder name" id="CcardHolderName"></td>
+                        <td> Card Number<sup>*</sup>:<input type="text" name="submitPaymentRequest.creditCard.cardNumber"required="true"  placeholder="eg:33910754123" id="CcardNumber"></td>
+                        <td> Card brand<sup>*</sup>:<select name="submitPaymentRequest.creditCard.cardBrand" id="CcardBrand">
                             <option value="KOHLS_CHARGE">KOHLS_CHARGE</option>
                             <option value="AMERICAN_EXPRESS" > AMERICAN_EXPRESS</option>
                             <option value="DISCOVER_NETWORK" >DISCOVER_NETWORK</option>
@@ -295,19 +297,19 @@
                         </td>
                     </tr>
                     <tr>
-                        <td>Card Month:<input type="text" name="submitPaymentRequest.creditCard.cardMonth" required="true" placeholder="Required a number"></td>
-                        <td>Card Year:<input name="submitPaymentRequest.creditCard.cardYear" required="true" placeholder="Required a number"></td>
-                        <td>CID:<input name="submitPaymentRequest.creditCard.cid" required="true" placeholder="number"></td>
+                        <td>Card Month<sup>*</sup>:<input type="text" name="submitPaymentRequest.creditCard.cardMonth" required="true" placeholder="card month" id="CcardMonth"></td>
+                        <td>Card Year<sup>*</sup>:<input name="submitPaymentRequest.creditCard.cardYear" required="true" placeholder="card year" id="CcardYear"></td>
+                        <td>CID<sup>*</sup>:<input name="submitPaymentRequest.creditCard.cid" required="true" placeholder="Card id" id="Ccid"></td>
                     </tr>
                     <tr>
-                        <td>Amount:<input name="submitPaymentRequest.creditCard.amount"  placeholder="Required a number" ></td>
-                        <td>Remaining Balance:<input name="submitPaymentRequest.creditCard.remBal" placeholder="Required a number" ></td>
-                        <td>CCID:<input name="submitPaymentRequest.creditCard.ccdId" required="true" placeholder="Required a number"></td>
+                        <td>Amount:<input name="submitPaymentRequest.creditCard.amount"  placeholder="eg:50000"  id="Camount"></td>
+                        <td>Remaining Balance:<input name="submitPaymentRequest.creditCard.remBal" placeholder="eg:2000" id="CremBal" ></td>
+                        <td>CCID:<input name="submitPaymentRequest.creditCard.ccdId" required="true" placeholder="ccid number" id="CccdId"></td>
                     </tr>
                     <tr>
-                        <td>Expiration Date:<input  name="submitPaymentRequest.creditCard.expirationDate" required="true" ></td>
-                        <td><input type="checkbox" name="submitPaymentRequest.creditCard.expeditedCheckout" value="true">Expedited checkout</td>
-                        <td><input type="checkbox" name="submitPaymentRequest.creditCard.eligibleForExpeditedCheckout" value="true">Eligible for Expedited checkout</td>
+                        <td>Expiration Date<sup>*</sup>:<input  name="submitPaymentRequest.creditCard.expirationDate" required="true" placeholder="eg:15-Apr-2001" id="CexpirationDate"></td>
+                        <td><input type="checkbox" name="submitPaymentRequest.creditCard.expeditedCheckout" value="true" id="CexpeditedCheckout">Expedited checkout</td>
+                        <td><input type="checkbox" name="submitPaymentRequest.creditCard.eligibleForExpeditedCheckout" value="true" id="CeligibleForExpeditedCheckout">Eligible for Expedited checkout</td>
                     </tr>
                 </table>
             </fieldset>
@@ -321,9 +323,9 @@
                 <table>
 
                     <tr>
-                        <td>Code:<input name="submitPaymentRequest.promoCode.code" required="true"></td>
-                        <td> Amount:<input name="submitPaymentRequest.promoCode.amount" required="true" placeholder="Required a number" ></td>
-                        <td> PromoCode Type:<select name="submitPaymentRequest.promoCode.type">
+                        <td>Code<sup>*</sup>:<input name="submitPaymentRequest.promoCode.code" required="true" placeholder="enter the code" id="Pcode"></td>
+                        <td> Amount<sup>*</sup>:<input name="submitPaymentRequest.promoCode.amount" required="true" placeholder="eg:10000" id="Pamount"></td>
+                        <td> PromoCode Type:<select name="submitPaymentRequest.promoCode.type" id="Ptype">
                             <option value="D" selected >D</option>
                             <option value="  DA" >  DA</option>
                             <option value=" DP" > DP</option>
@@ -334,10 +336,10 @@
 
                     </tr>
                     <tr>
-                        <td>Percentage:<input name="submitPaymentRequest.promoCode.percentage" required="true" placeholder="Required a number"></td>
-                        <td>PromoId:<input name="submitPaymentRequest.promoCode.promoId" required="true" placeholder="Required a number"></td>
-                        <td>Offer Scope:<input name="submitPaymentRequest.promoCode.offerScope" required="true"></td>
-                        <td><input type="checkbox" name="submitPaymentRequest.promoCode.applied" value="true">Applied</td>
+                        <td>Percentage:<input name="submitPaymentRequest.promoCode.percentage" required="true" placeholder="eg:40" id="Ppercentage"></td>
+                        <td>PromoId<sup>*</sup>:<input name="submitPaymentRequest.promoCode.promoId" required="true" placeholder="promoid number" id="PpromoId"></td>
+                        <td>Offer Scope:<input name="submitPaymentRequest.promoCode.offerScope" required="true" placeholder="offerscope" id="PofferScope"></td>
+                        <td><input type="checkbox" name="submitPaymentRequest.promoCode.applied" value="true" id="Papplied">Applied</td>
                     </tr>
                 </table>
             </fieldset>
@@ -347,16 +349,16 @@
 
         <tr>
 
-            <td><input type="checkbox" name="submitPaymentRequest.expeditedCheckout" value="true">Expedited checkout</td>
-            <td><input type="checkbox" name="submitPaymentRequest.registered" value="true" >is Registered</td>
-            <td><input type="checkbox" name="submitPaymentRequest.failfast" value="true">Fail fast</td>
+            <td><input type="checkbox" name="submitPaymentRequest.expeditedCheckout" value="true" id="SexpeditedCheckou">Expedited checkout</td>
+            <td><input type="checkbox" name="submitPaymentRequest.registered" value="true"  id="Sregistered">is Registered</td>
+            <td><input type="checkbox" name="submitPaymentRequest.failfast" value="true" id="Sfailfast">Fail fast</td>
         </tr>
         </table>
     </fieldset>
     </div>
 
 <p align="center">
-    <input type="submit" value="Submit"> <input type="reset" value="Clear All">
+    <input type="submit" value="Submit" id="Submit"> <input type="reset" value="Clear All" id="Clear All">
 </p>
 
 </form:form>
