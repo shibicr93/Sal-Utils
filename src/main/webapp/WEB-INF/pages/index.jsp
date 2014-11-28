@@ -47,7 +47,7 @@
 
             var cell4 = row.insertCell(3);
             var element4 = document.createElement("input");
-            element4.type = "text";
+            element4.type = "number";
             element4.name="addUpdateCartItemsRequest.addItemList["+rowCount+"].quantity";
             cell4.appendChild(element4);
 
@@ -83,6 +83,334 @@
 
     </SCRIPT>
 
+
+    <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.7/jquery.validate.min.js"></script>
+    <script>
+
+
+    $().ready(function() {
+        $("#myForm").validate({
+            rules: {
+
+                "addUpdateCartItemsRequest.user.names.firstName": "required",
+                "addUpdateCartItemsRequest.user.names.lastName": "required",
+
+                "addUpdateCartItemsRequest.credentials.userId": {
+                    required: true,
+                    minlength: 3
+                },
+                "addUpdateCartItemsRequest.credentials.password": {
+                    required: true,
+                    minlength: 5
+                },
+//
+                "addUpdateCartItemsRequest.user.email": {
+                    required: true,
+                    email: true
+                },
+                "addUpdateCartItemsRequest.user.loyaltyId":{
+                    required: true,
+                    number:true
+                },
+                "addUpdateCartItemsRequest.user.dateOfBirth":{
+                    required:true,
+                    date:true
+                },
+                "addUpdateCartItemsRequest.cartId":{
+                    required:true,
+                    number:true
+                },
+
+                //billingShipping fields validation starts from here
+                "billingShippingRequest.billingContact.names.firstName": "required",
+                "billingShippingRequest.billingContact.names.lastName": "required",
+                "billingShippingRequest.billingContact.address.stateCode":"required",
+                "billingShippingRequest.billingContact.address.countryCode":"required",
+                "billingShippingRequest.billingContact.address.zipCode":{
+                    required:true,
+                    number:true
+                },
+//                    "billingShippingRequest.billingContact.address.countyGeoCode":{
+//                        required:true,
+//                        number:true
+//                    },
+//                    "billingShippingRequest.billingContact.phone.areaCode":{
+//                        required:true,
+//                        number:true
+//                    },
+//                    "billingShippingRequest.billingContact.phone.exchange":{
+//                        required:true,
+//                        number:true
+//                    },
+//                    "billingShippingRequest.billingContact.phone.extension":{
+//                        required:true,
+//                        number:true
+//                    },
+                "billingShippingRequest.billingContact.email":{
+                    required:true,
+                    email:true
+                },
+
+                //optional , needed when both addresses are same flag is false
+
+
+                "billingShippingRequest.shippingContact.names.firstName":{
+                    required:function(){
+                        if(($('#isSame').is(':checked'))) {
+                            return false;
+                        }
+                        else{
+                            return true;
+                        }
+                    }
+                },
+                "billingShippingRequest.shippingContact.names.lastName": {
+                    required:function(){
+                        if(($('#isSame').is(':checked'))) {
+                            return false;
+                        }
+                        else{
+                            return true;
+                        }
+                    }
+                },
+                "billingShippingRequest.shippingContact.address.stateCode":{
+                    required:function(){
+                        if(($('#isSame').is(':checked'))) {
+                            return false;
+                        }
+                        else{
+                            return true;
+                        }
+                    }
+                },
+                "billingShippingRequest.shippingContact.address.countryCode":{
+                    required:function(){
+                        if(($('#isSame').is(':checked'))) {
+                            return false;
+                        }
+                        else{
+                            return true;
+                        }
+                    }
+                },
+                "billingShippingRequest.shippingContact.address.zipCode":{
+                    required:function(){
+                        if(($('#isSame').is(':checked'))) {
+                            return false;
+                        }
+                        else{
+                            return true;
+                        }
+                    },
+                    number:true
+                },
+                "billingShippingRequest.shippingContact.email":{
+                    required:function(){
+                        if(($('#isSame').is(':checked'))) {
+                            return false;
+                        }
+                        else{
+                            return true;
+                        }
+                    },
+                    email:true
+                },
+
+
+
+                //submitPaymentRequest fields validation starts from here
+
+                "submitPaymentRequest.creditCard.cardHolderName":"required",
+                "submitPaymentRequest.creditCard.cardNumber":{
+                    required:true,
+                    number:true
+                },
+                "submitPaymentRequest.creditCard.cardMonth":{
+                    required:true,
+                    number:true
+                },
+                "submitPaymentRequest.creditCard.cardYear":{
+                    required:true,
+                    number:true
+                },
+                "submitPaymentRequest.creditCard.cid":{
+                    required:true,
+                    number:true
+                },
+                "submitPaymentRequest.creditCard.amount":{
+                    required:true,
+                    number:true
+                },
+                "submitPaymentRequest.creditCard.remBal":{
+                    required:true,
+                    number:true
+                },
+                "submitPaymentRequest.creditCard.ccdId":{
+                    required:true,
+                    number:true
+                },
+                "submitPaymentRequest.creditCard.expirationDate":{
+                    required:true,
+                    date:true
+                },
+                "submitPaymentRequest.promoCode.code":{
+                    required:true,
+                    number:true
+                },
+                "submitPaymentRequest.promoCode.amount":{
+                    required:true,
+                    number:true
+                },
+                "submitPaymentRequest.promoCode.percetage":{
+                    required:true,
+                    number:true
+                },
+                "submitPaymentRequest.promoCode.promoId":{
+                    required:true,
+                    number:true
+                }
+            },
+
+
+            messages: {
+                "addUpdateCartItemsRequest.user.names.firstName": "Please enter your first name",
+                "addUpdateCartItemsRequest.user.names.lastName": "Please enter your last name",
+                "addUpdateCartItemsRequest.user.names.MiddleName":"Please enter your middle name",
+                "addUpdateCartItemsRequest.credentials.userId": {
+                    required: "Please enter a username",
+                    minlength: "Your username must consist of at least 3 characters"
+                },
+                "addUpdateCartItemsRequest.credentials.password": {
+                    required: "Please provide a password",
+                    minlength: "Your password must be at least 5 characters long"
+                },
+
+                "addUpdateCartItemsRequest.user.email": "Please enter a valid email address",
+                "addUpdateCartItemsRequest.user.loyaltyId":{
+                    required: "Please provide a loyalty id",
+                    number: "Loyalty must be an integer type"
+                },
+                "addUpdateCartItemsRequest.user.dateOfBirth":{
+                    required:"Please provide date of birth",
+                    date:"Date of birth must be of type 04-Apr-1994"
+                },
+                "addUpdateCartItemsRequest.cartId":{
+                    required:"Required cartId",
+                    number:"must be of type integer"
+                },
+
+
+                //billingShipping fields validation error messages starts from here
+
+                "billingShippingRequest.billingContact.names.firstName": "Please enter your first name",
+                "billingShippingRequest.billingContact.names.lastName": "Please enter your last name",
+                "billingShippingRequest.billingContact.address.stateCode":"state code required",
+                "billingShippingRequest.billingContact.address.countryCode":"country code required",
+                "billingShippingRequest.billingContact.address.zipCode":{
+                    required:"Please provide zip code",
+                    number:"It must be of integer type"
+                },
+//                    "billingShippingRequest.billingContact.address.countyGeoCode":{
+//                        required:"Please provide county geo code",
+//                        number:"It must be of integer type"
+//                    },
+//                    "billingShippingRequest.billingContact.phone.areaCode":{
+//                        required:"Please provide area code",
+//                        number:"It must be of integer type"
+//                    },
+//                    "billingShippingRequest.billingContact.phone.exchange":{
+//                        required:"Please provide exchange code",
+//                        number:"It must be of integer type"
+//                    },
+//                    "billingShippingRequest.billingContact.phone.extension":{
+//                        required:"Please provide extension code",
+//                        number:"It must be of integer type"
+//                    },
+                "billingShippingRequest.billingContact.email":{
+                    required:"Please provide a email id",
+                    email:"eg xyz@gmail.com"
+                },
+
+
+                "billingShippingRequest.shippingContact.names.firstName": "Please enter your first name",
+                "billingShippingRequest.shippingContact.names.lastName": "Please enter your last name",
+                "billingShippingRequest.shippingContact.address.stateCode":"state code required",
+                "billingShippingRequest.shippingContact.address.countryCode":"country code required",
+                "billingShippingRequest.shippingContact.address.zipCode":{
+                    required:"Please provide zip code",
+                    number:"It must be of integer type"
+                },
+                "billingShippingRequest.shippingContact.email":{
+                    required:"Please provide a email id",
+                    email:"eg xyz@gmail.com"
+                },
+
+
+
+                //submitPaymentRequest fields validation error messages starts from here
+
+                "submitPaymentRequest.creditCard.cardHolderName":"Please provide a card holder name",
+                "submitPaymentRequest.creditCard.cardNumber":{
+                    required:"Provide a card number",
+                    number:"must be of integer type"
+                },
+                "submitPaymentRequest.creditCard.cardMonth":{
+                    required:"Provide a card month",
+                    number:"must be of integer type"
+                },
+                "submitPaymentRequest.creditCard.cardYear":{
+                    required:"Provide a card year",
+                    number:"must be of integer type"
+                },
+                "submitPaymentRequest.creditCard.cid":{
+                    required:"Provide a credit card cid",
+                    number:"must be of integer type"
+                },
+                "submitPaymentRequest.creditCard.amount":{
+                    required:"Provide a credit card amount",
+                    number:"must be of integer type"
+                },
+                "submitPaymentRequest.creditCard.remBal":{
+                    required:"Provide  credit card remaining balance",
+                    number:"must be of integer type"
+                },
+                "submitPaymentRequest.creditCard.ccdId":{
+                    required:"Provide a card ccdId",
+                    number:"must be of integer type"
+                },
+                "submitPaymentRequest.creditCard.expirationDate":{
+                    required:"Provide a card number",
+                    Date:"must be of type DD-MON-YYYY"
+                },
+                "submitPaymentRequest.promoCode.code":{
+                    required:"Provide a code  ",
+                    number:"must be of integer type"
+                },
+                "submitPaymentRequest.promoCode.amount":{
+                    required:"Provide a amount",
+                    number:"must be of integer type"
+                },
+                "submitPaymentRequest.promoCode.percetage":{
+                    required:"Provide the percentage",
+                    number:"must be of integer type"
+                },
+                "submitPaymentRequest.promoCode.promoId":{
+                    required:"Provide a promoId",
+                    number:"must be of integer type"
+                }
+
+
+
+
+
+                //rules and messages end here
+            }
+        });
+    });
+
+    </script>
+
     <style>
         body {background-color:#CCFFFF}
         h1   {color:blue}
@@ -92,12 +420,23 @@
         tr  {width: 100%; height: 100%}
 
 
+
+        #myForm {
+            width: 1300px;
+        }
+        #myForm label.error {
+            margin-left: 10px;
+            width: auto;
+            display: inline-block;
+            color: red;
+        }
     </style>
+
 
 </head>
 <h2>Request page</h2>
 <body>
-<form:form  action="/test/response" modelAttribute="registeredCheckoutRequest">
+<form:form  action="/test/response" modelAttribute="registeredCheckoutRequest" id="myForm" novalidate="novalidate">
 
 <div>
     <fieldset>
@@ -202,7 +541,7 @@
             </fieldset>
         </div>
         </br></br>
-        <input type="checkbox" onclick="toggle('.myClass', this)" name="billingShippingRequest.shippingAddressSameAsBillingAddress" value="true">shipping contact is same as billing contact
+        <input id="isSame" type="checkbox" onclick="toggle('.myClass', this)" name="billingShippingRequest.shippingAddressSameAsBillingAddress" value="true">shipping contact is same as billing contact
 
 
         <div class="myClass">
@@ -282,7 +621,7 @@
 
                     <tr>
                         <td>Card Holder Name<sup>*</sup>:<input type="text" name="submitPaymentRequest.creditCard.cardHolderName" required="true" placeholder="card holder name" id="CcardHolderName"></td>
-                        <td> Card Number<sup>*</sup>:<input type="text" name="submitPaymentRequest.creditCard.cardNumber"required="true"  placeholder="eg:33910754123" id="CcardNumber"></td>
+                        <td> Card Number<sup>*</sup>:<input type="text" name="submitPaymentRequest.creditCard.cardNumber" required="true"  placeholder="eg:33910754123" id="CcardNumber"></td>
                         <td> Card brand<sup>*</sup>:<select name="submitPaymentRequest.creditCard.cardBrand" id="CcardBrand">
                             <option value="KOHLS_CHARGE">KOHLS_CHARGE</option>
                             <option value="AMERICAN_EXPRESS" > AMERICAN_EXPRESS</option>
