@@ -418,7 +418,8 @@
         sup  {color:red}
         legend {color:#FF19FF}
         tr  {width: 100%; height: 100%}
-        div {background-color: #F5FFFA; box-shadow: 10px 10px 5px #888888;}
+        div {background-color: #F5FFFA;}
+        .addUpdate {box-shadow: 10px 10px 5px #888888;} /*to create shadow effect*/
 
 
 
@@ -439,7 +440,7 @@
 <body>
 <form:form  action="/test/response" modelAttribute="registeredCheckoutRequest" id="myForm" novalidate="novalidate">
 
-<div>
+<div class="addUpdate">
     <fieldset>
         <legend align="center">AddUpdateCartItemsRequest</legend>
         <div>
@@ -507,7 +508,7 @@
 
 </br></br>
 
-<div>
+<div class="addUpdate">
     <fieldset>
         <legend align="center">Billing Shipping request:</legend>
         </br></br>
@@ -611,7 +612,7 @@
     </fieldset>
 </div>
 </br></br>
-<div>
+<div class="addUpdate">
     <fieldset>
         <legend align="center">Submit Payment Request </legend>
 
