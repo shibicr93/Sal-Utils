@@ -412,12 +412,13 @@
     </script>
 
     <style>
-        body {background-color:#CCFFFF}
+        body {background-color:#FFFFE3}
         h1   {color:blue}
         p    {color:green}
         sup  {color:red}
-        legend {color:red}
+        legend {color:#FF19FF}
         tr  {width: 100%; height: 100%}
+        div {background-color: #F5FFFA; box-shadow: 10px 10px 5px #888888;}
 
 
 
@@ -685,7 +686,7 @@
             </fieldset>
         </div>
 
-
+</br></br>
 
         <tr>
 

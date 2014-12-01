@@ -9,32 +9,37 @@
 <%@taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Result page</title>
 
     <style>
-        body {background-color:#CCFFFF}
+        body {background-color:#FFFFE3}
         h1   {color:blue}
         p    {color:green}
         sup  {color:red}
-        legend {color:red}
+        legend {color:#FF19FF}
+        b {color: blue}
+        div {background-color: #F5FFFA; box-shadow: 10px 10px 5px #888888;}
+
+
 
     </style>
 </head>
 <body>
-<h2>Result page</h2>
+<center><h1>Result page</h1></center>
 <div>
     <fieldset>
         <legend align="center">AddUpdateCartItemsRequest</legend>
         <div>
             <fieldset>
                 <legend>User Information:</legend>
-                <table>
+                <table cellspacing="10">
                     <tr>
                         <td>First Name :${registeredCheckoutRequest.addUpdateCartItemsRequest.user.names.firstName}</td>
-                        <td> Last Name:${registeredCheckoutRequest.addUpdateCartItemsRequest.user.names.lastName}</td>
                         <td> Middle Name:${registeredCheckoutRequest.addUpdateCartItemsRequest.user.names.middleName}</td>
+                        <td> Last Name:${registeredCheckoutRequest.addUpdateCartItemsRequest.user.names.lastName}</td>
                     </tr>
                     <tr>
                         <td> Email:${registeredCheckoutRequest.addUpdateCartItemsRequest.user.email}</td>
@@ -50,7 +55,7 @@
                     <tr>
                         <td>UserId :${registeredCheckoutRequest.addUpdateCartItemsRequest.credentials.userId}</td>
                         <td>PassWord :${registeredCheckoutRequest.addUpdateCartItemsRequest.credentials.password}</td>
-                        <td>CheckOut :${registeredCheckoutRequest.addUpdateCartItemsRequest.checkOut}</td>
+                        <td>CheckOut :<b>${registeredCheckoutRequest.addUpdateCartItemsRequest.checkOut}</b></td>
                         <td>CartId :${registeredCheckoutRequest.addUpdateCartItemsRequest.cartId}</td>
                     </tr>
 
@@ -61,7 +66,7 @@
         <div>
             <fieldset>
                 <legend>Add Items to Cart</legend>
-                <table>
+                <table cellspacing="10">
                     <tr>
                         <th>S.No.</th>
                         <th>Sku Code</th>
@@ -73,7 +78,7 @@
                             <td>${status.count}</td>
                             <td > ${addItemList.skuCode}</td>
                             <td> ${addItemList.quantity}</td>
-                            <td> ${addItemList.gift}</td>
+                            <td> <b>${addItemList.gift}</b></td>
                         </tr>
                     </c:forEach>
                 </table>
@@ -90,7 +95,7 @@
         <div>
             <fieldset>
                 <legend>Billing Contact</legend>
-                <table>
+                <table cellspacing="10">
 
                     <tr>
                         <td> First Name:${registeredCheckoutRequest.billingShippingRequest.billingContact.names.firstName}<br></td>
@@ -120,7 +125,7 @@
         <div>
             <fieldset>
                 <legend>Shipping Contact</legend>
-                <table>
+                <table cellspacing="10">
 
                     <tr>
                         <td> First Name:${registeredCheckoutRequest.billingShippingRequest.shippingContact.names.firstName}<br></td>
@@ -149,14 +154,14 @@
         </br></br>
 
         <div>
-            <table>
+            <table cellspacing="10">
                 <tr>
                     <td>Shipping Method: ${registeredCheckoutRequest.billingShippingRequest.shippingMethod}</td>
                 </tr>
                 <tr>
-                    <td > Expedited Checkout:${registeredCheckoutRequest.billingShippingRequest.expeditedCheckout}         </td>
-                    <td > Validate ShippingMethod:${registeredCheckoutRequest.billingShippingRequest.validateShippingMethod}    </td>
-                    <td > BothAddressSame:${registeredCheckoutRequest.billingShippingRequest.shippingAddressSameAsBillingAddress}</td>
+                    <td > Expedited Checkout:<b>${registeredCheckoutRequest.billingShippingRequest.expeditedCheckout}</b>         </td>
+                    <td > Validate ShippingMethod:<b>${registeredCheckoutRequest.billingShippingRequest.validateShippingMethod}</b>    </td>
+                    <td > BothAddressSame:<b>${registeredCheckoutRequest.billingShippingRequest.shippingAddressSameAsBillingAddress}</b></td>
 
                 </tr>
             </table>
@@ -173,7 +178,7 @@
         <div>
             <fieldset>
                 <legend> credit card details </legend>
-                <table>
+                <table cellspacing="10">
 
                     <tr>
                         <td>Card Holder Name:${registeredCheckoutRequest.submitPaymentRequest.creditCard.cardHolderName}</td>
@@ -195,8 +200,8 @@
                     </tr>
                     <tr>
                         <td>Expiration Date:${registeredCheckoutRequest.submitPaymentRequest.creditCard.expirationDate} </td>
-                        <td>Expedited checkout:${registeredCheckoutRequest.submitPaymentRequest.creditCard.expeditedCheckout} </td>
-                        <td>Eligible for Expedited checkout:${registeredCheckoutRequest.submitPaymentRequest.creditCard.eligibleForExpeditedCheckout}</td>
+                        <td>Expedited checkout:<b>${registeredCheckoutRequest.submitPaymentRequest.creditCard.expeditedCheckout}</b> </td>
+                        <td>Eligible for Expedited checkout:<b>${registeredCheckoutRequest.submitPaymentRequest.creditCard.eligibleForExpeditedCheckout}</b></td>
                     </tr>
                 </table>
             </fieldset>
@@ -206,7 +211,7 @@
 
             <fieldset>
                 <legend> PromoCode details </legend>
-                <table>
+                <table cellspacing="10">
 
                     <tr>
                         <td>Code:${registeredCheckoutRequest.submitPaymentRequest.promoCode.code}</td>
@@ -218,14 +223,14 @@
                         <td>Percentage:${registeredCheckoutRequest.submitPaymentRequest.promoCode.percentage}</td>
                         <td>PromoId:${registeredCheckoutRequest.submitPaymentRequest.promoCode.promoId}</td>
                         <td>Offer Scope:${registeredCheckoutRequest.submitPaymentRequest.promoCode.offerScope}</td>
-                        <td>Applied:${registeredCheckoutRequest.submitPaymentRequest.promoCode.applied}</td>
+                        <td>Applied:<b>${registeredCheckoutRequest.submitPaymentRequest.promoCode.applied}</b></td>
                     </tr>
 
                     <tr>
 
-                        <td>Expedited checkout:${registeredCheckoutRequest.submitPaymentRequest.expeditedCheckout}</td>
-                        <td>is Registered:${registeredCheckoutRequest.submitPaymentRequest.registered}</td>
-                        <td>Fail fast:${registeredCheckoutRequest.submitPaymentRequest.failfast}</td>
+                        <td>Expedited checkout:<b>${registeredCheckoutRequest.submitPaymentRequest.expeditedCheckout}</b></td>
+                        <td>is Registered:<b>${registeredCheckoutRequest.submitPaymentRequest.registered}</b></td>
+                        <td>Fail fast:<b>${registeredCheckoutRequest.submitPaymentRequest.failfast}</b></td>
                     </tr>
 
                 </table>
@@ -235,6 +240,5 @@
     </fieldset>
 </div>
 </br></br>
-
 </body>
 </html>
