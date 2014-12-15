@@ -51,6 +51,7 @@
             element4.name="addUpdateCartItemsRequest.addItemList["+rowCount+"].quantity";
             cell4.appendChild(element4);
 
+
             var cell5 = row.insertCell(4);
             var element5 = document.createElement("input");
             element5.type = "checkbox";
@@ -309,7 +310,7 @@
                 "billingShippingRequest.billingContact.address.countryCode":"country code required",
                 "billingShippingRequest.billingContact.address.zipCode":{
                     required:"Please provide zip code",
-                    number:"It must be of integer type"
+                    number:"It must be of type integer "
                 },
 //                    "billingShippingRequest.billingContact.address.countyGeoCode":{
 //                        required:"Please provide county geo code",
@@ -581,7 +582,7 @@
         <div>
             <table>
                 <tr>
-                    <td>Shipping Method:<input type="text" name="billingShippingRequest.shippingMethod" placeholder="USND " id="SshippingMethod">
+                    <td>Shipping Method:<input type="text" name="billingShippingRequest.shippingMethod" placeholder="ex. USSTD, USNDY, POSTD, AHSTD " id="SshippingMethod">
 
                             <%--<select name="billingShippingRequest.shippingMethod">--%>
                             <%--<option value="false" selected>select</option>--%>
@@ -615,7 +616,7 @@
 <div class="addUpdate">
     <fieldset>
         <legend align="center">Submit Payment Request </legend>
-
+// update items to cart here....
         <div>
             <fieldset>
                 <legend> credit card details </legend>
